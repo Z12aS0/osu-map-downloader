@@ -1,6 +1,14 @@
 # osu-map-downloader
 python script for downloading osu maps in the background using selenium.
 
+Rate limits of 6/minute and 200/hour 
+
+### other links
+[original script](https://osu.ppy.sh/community/forums/topics/692972)
+
+
+[downloads for all ranked/loved osu maps](https://osu.ppy.sh/community/forums/topics/330552)
+
 ## Requirements:
 - google chrome browser or any other selenium supported browser(edit line 125 and related lines)
 - python
