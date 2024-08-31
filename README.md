@@ -9,6 +9,9 @@ Rate limits of 6/minute and 200/hour
 
 [downloads for all ranked/loved osu maps with no rate limits](https://osu.ppy.sh/community/forums/topics/330552)
 
+
+## [osu!taiko Bulgaria discord server](https://discord.gg/ryNtbzqJH4)
+
 ## Running
 	After installing the project as zip, run maps.bat or the python file directly.
  	Maybe check for suspicious code if you are paranoid :)
@@ -51,7 +54,3 @@ Rate limits of 6/minute and 200/hour
 ## misc:
 	at the  bottom of the script you can enable opening download folder after downloading 
 
-
-
-
-## [osu!taiko Bulgaria discord server](https://discord.gg/ryNtbzqJH4)
