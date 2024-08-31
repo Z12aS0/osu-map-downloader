@@ -7,7 +7,7 @@ Rate limits of 6/minute and 200/hour
 [original script](https://osu.ppy.sh/community/forums/topics/692972)
 
 
-[downloads for all ranked/loved osu maps](https://osu.ppy.sh/community/forums/topics/330552)
+[downloads for all ranked/loved osu maps with no rate limits](https://osu.ppy.sh/community/forums/topics/330552)
 
 ## Requirements:
 - google chrome browser or any other selenium supported browser(edit line 125 and related lines)
