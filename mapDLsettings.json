@@ -1,0 +1,8 @@
+{
+	"cookies":[{"name": "osu_session", "value": "OSU COOKIE HERE", "domain": "ppy.sh"}],
+	"apikey":"OSU API KEY HERE",
+	"osudir":"C:\\example\\path\\to\\osu",
+	"mode":"1",
+	"fastdb":"0",
+	"last_download":""
+}
