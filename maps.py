@@ -8,6 +8,7 @@ import collections
 import requests
 import webbrowser
 import subprocess
+import threading
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -39,6 +40,13 @@ page_date = datetime.datetime.strptime(start_date_stamp, date_format)
 
 
 db = {}
+
+
+def download_map(key):
+    driver.get("https://osu.ppy.sh/beatmapsets/" + key)
+    WebDriverWait(driver, 10).until(
+        EC.element_to_be_clickable((By.XPATH, "//a[@class='btn-osu-big btn-osu-big--beatmapset-header ']"))
+    ).click()
 
 def get_next_date(ordered_dict):
     bm_key = next(reversed(ordered_dict))
@@ -164,25 +172,24 @@ else:
     
     if(x_ >= 200):
         settings["fastdb"] = "0"
-    else:
-        settings["fastdb"] = "1"
-
-
+    
     for key in missing.keys():
-        driver.get("https://osu.ppy.sh/beatmapsets/" + key)
-        WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "//a[@class='btn-osu-big btn-osu-big--beatmapset-header ']"))).click()
-        for i in range(10):
-            sleft = int((((x_ - y_) * 10) - i) % 60)
-            mleft = int(((x_ - y_) * 10) // 60)
-            print(f'\r{key} |{"█" * int(50 * y_ // x_)}{"-" * (50 - int(50 * y_ // x_))}| {y_}/{x_} ({100 * y_ / float(x_):.2f}%) ({mleft}m{sleft}s left)', end="\n")
-            time.sleep(1.0)
-        y_ += 1
-        if (y_ % 200) == 0:
-            print('Osu rate limit exceeded. You may continue downloading later(about 1-2 hours)')
-            break
+        threading.Thread(target=download_map, args=(key,)).start()
+        if(y_ != x_):
+            for i in range(10):
+                sleft = int((((x_ - y_) * 10) - i) % 60)
+                mleft = int(((x_ - y_) * 10) // 60)
+                print(f'\r{key} |{"█" * int(50 * y_ // x_)}{"-" * (50 - int(50 * y_ // x_))}| {y_}/{x_} ({100 * y_ / float(x_):.2f}%) ({mleft}m{sleft}s left)', end="\r")
+                time.sleep(1.0)
+            y_ += 1
+            if (y_ % 200) == 0:
+                print('Osu rate limit exceeded. You may continue downloading later(about 1-2 hours)')
+                break
+        else:
+            time.sleep(5.0)
+print("Finishing downloads")
+time.sleep(5.0) #if last map hasnt finished downloading
 driver.quit()
-
-
 
 
 
