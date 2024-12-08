@@ -3,9 +3,12 @@ python script for downloading osu maps in the background using selenium.
 
 Rate limits of 6/minute and 200/hour 
 
+
 ### other links
 [original script](https://osu.ppy.sh/community/forums/topics/692972)
 
+
+[lazer-exporter](https://github.com/oSumAtrIX/lazer-exporter) by [oSumArtIX](https://github.com/oSumAtrIX) (Javascript code is made by him, modified by me)
 
 [downloads for all ranked/loved osu maps with no rate limits](https://osu.ppy.sh/community/forums/topics/330552)
 
@@ -16,6 +19,8 @@ Rate limits of 6/minute and 200/hour
 	After installing the project as zip, run maps.bat or the python file directly.
  	Maybe check for suspicious code if you are paranoid :)
 
+  	For running lazer using the batch file. Modify the path to your client.realm file so it can be used.
+
 ## Requirements:
 - google chrome browser or any other selenium supported browser(edit line 125 and related lines)
 - python
@@ -23,6 +28,8 @@ Rate limits of 6/minute and 200/hour
 - requests module
 - api key(<https://osu.ppy.sh/p/api/>)
 - osu cookie(<https://chrome.google.com/webstore/detail/cookie-tab-viewer/fdlghnedhhdgjjfgdpgpaaiddipafhgk>)
+
+- for lazer - Node.js
 
 ## config file:
 	To edit:
@@ -50,6 +57,8 @@ Rate limits of 6/minute and 200/hour
 	in cmd or powershell type
 	"pip install requests" -for api requests
 	"pip install selenium" -webdriver required for it to run
+
+ 	Lazer: run "npm i" inside project
 
 ## misc:
 	at the  bottom of the script you can enable opening download folder after downloading 
